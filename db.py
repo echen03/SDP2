@@ -19,10 +19,10 @@ def addUser(): #adds user to database
                 return False
             else:
                 id = getTableLen("users") #gives the user the next availabe id
-                c.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", (id, request.form['username'], request.form['password'], request.form['firstName'], request.form['lastName'], "", "")) #different version of format
+                c.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?);", (id, request.form['username'], request.form['password'], 0, 0, 0)) #different version of format
                 db.commit()
-                c.execute("INSERT INTO apiKeys VALUES(?, ?, ?, ?);", (id, "", "", ""))
-                db.commit()
+                # c.execute("INSERT INTO apiKeys VALUES(?, ?, ?, ?);", (id, "", "", ""))
+                # db.commit()
                 db.close()
                 flash("Register Success!")
                 flash("index")
