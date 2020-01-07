@@ -1,2 +1,5 @@
 TEAM: Baguette Grabbers
 Members: Tyler Huang, William Lin, Ethan Chen, Jiong Hao Wu
+
+huangT -- 2020-1-06 9:13
+- added design doc, requirements.txt, devlog and flag
