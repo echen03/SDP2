@@ -87,10 +87,6 @@ def fillUserInfo(arr): #@param arr is an array and fills this array with info on
     q = c.execute("SELECT * FROM users WHERE id = {};".format(userID))
     for bar in q:
         arr['username'] = bar[1]
-        arr['firstName'] = bar[3]
-        arr['lastName'] = bar[4]
-        arr['location'] = bar[5]
-        arr['address'] = bar[6]
 
 def updateAPIKey(button): #@param button determines which API to get updated
     dbfile = "data.db"

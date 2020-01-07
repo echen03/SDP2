@@ -13,50 +13,9 @@
     <nav class="hover-underline-menu" data-menu-underline-from-center>
       <ul class="menu align-center">
         <li><a href="/home">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/howToUse">How to Use</a></li>
+        <li><a href="/about">Account</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </nav>
-    <div class="middle-content-section">
-    <div class="home-top">
-      <center>
-        <h1>Welcome {{ user }}!</h1>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <h5> {{ messages[0] }} </h5>
-          {% endif %}
-        {% endwith %}
-      </center>
-    </div>
-    <div class="home-grid middle-content-section grid-x text-center">
-      <div class="cell small-4 large-4">
-        <h3>Basic Information</h3>
-        <div class="home-text">
-          <p>Name: {{ name }} <br>
-          Location: {{ loc }} <br>
-          Address: {{ address }} <br></p>
-        </div>
-        <a href="/update" class="button">Update Info</a><br>
-        <a href="/logout" class="button">Log Out</a>
-      </div>
-      <div class="cell small-4 large-4">
-        <h3>Information About You</h3>
-        <div class="login-box-form-section">
-          <a href="/weather" class="button">Check Weather</a><br>
-          <a href="/elections" class="button">Check Elections</a><br>
-          <a href="/representatives" class="button">Check Representatives</a><br>
-          <div class="dropdown">
-          <button class="dropbtn">Places Near You</button>
-            <div class="dropdown-content">
-              {% for p in places %}
-                <a href="/places/{{ p }}">{{ p }}</a>
-              {% endfor %}
-            </div>
-          </div>
-          <br><br>
-        </div>
-      </div>
-    </div>
-    </div>
   </body>
 </html>
