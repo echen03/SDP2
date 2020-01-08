@@ -18,3 +18,7 @@ huangT -- 2020-1-07 21:30
 - added api documentation
 - tested a time tracking
 - testing card api
+
+chenE -- 2020-1-08 9:10
+-updated app.py (added the routes for games-info and home)
+-planning to start sudoku
