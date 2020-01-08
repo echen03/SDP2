@@ -65,21 +65,30 @@ def logout():
     flash("index")
     return redirect(url_for("root"))
 
+
 @app.route("/home")
-def home(): #display home page of website
-    if 'user' in session:
-        return render_template("homepage.html")
-    else:
-        return redirect(url_for("root"))
+def home():
+    if 'user' not in session:
+        return redirect(url_for("login"))
+    user = session['user]
+    list_of_games = db_manager.getGames()
+    return render_template("home.html", user = user, list_of_games = list_of_games)
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
+@app.route("/games-info/<game>")
+def info(game):
+    if 'user' not in session:
+        return redirect(url_for("login"))
+    user = session["username"]
+    description = db_manager.getDescription(game)
+    how_to_play = db_manager.getHtoP(game)
+    image = db_manager.getImage(game)
+    return render_template("games-info.html", user = user, description = description, how_to_play = how_to_play)
 
-@app.route("/howToUse")
-def howToUse():
-    return render_template("howToUse.html")
-
+@app.route("/sudoku")
+def sudoku():
+    if 'user' not in session:
+        return redirect(url_for("login"))
+    return redirect(url_for("play-sudoku"))
 
 if __name__ == "__main__":
     app.debug = True
