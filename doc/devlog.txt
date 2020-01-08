@@ -13,3 +13,8 @@ linW -- 2020-01-07 10:42
 linW -- 2020-01-07 18:56
 - created login, register, and home pages
 - modified the database values
+
+huangT -- 2020-1-07 21:30
+- added api documentation
+- tested a time tracking
+- testing card api
