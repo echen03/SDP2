@@ -19,10 +19,10 @@ def addUser(): #adds user to database
                 return False
             else:
                 id = getTableLen("users") #gives the user the next availabe id
-                c.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", (id, request.form['username'], request.form['password'], request.form['firstName'], request.form['lastName'], "", "")) #different version of format
+                c.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?);", (id, request.form['username'], request.form['password'], 0, 0, 0)) #different version of format
                 db.commit()
-                c.execute("INSERT INTO apiKeys VALUES(?, ?, ?, ?);", (id, "", "", ""))
-                db.commit()
+                # c.execute("INSERT INTO apiKeys VALUES(?, ?, ?, ?);", (id, "", "", ""))
+                # db.commit()
                 db.close()
                 flash("Register Success!")
                 flash("index")
@@ -87,10 +87,6 @@ def fillUserInfo(arr): #@param arr is an array and fills this array with info on
     q = c.execute("SELECT * FROM users WHERE id = {};".format(userID))
     for bar in q:
         arr['username'] = bar[1]
-        arr['firstName'] = bar[3]
-        arr['lastName'] = bar[4]
-        arr['location'] = bar[5]
-        arr['address'] = bar[6]
 
 def updateAPIKey(button): #@param button determines which API to get updated
     dbfile = "data.db"
